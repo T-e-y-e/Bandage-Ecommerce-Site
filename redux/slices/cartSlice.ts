@@ -17,8 +17,16 @@ interface CartState {
   cartTotalAmount: number;
 }
 
+const getInitialCartItems = () => {
+    if (typeof window !== "undefined") {
+      const storedCartItems = localStorage.getItem("cartItems");
+      return storedCartItems ? JSON.parse(storedCartItems) : [];
+    }
+    return [];
+  };
+
 const initialState: CartState = {
-  cartItems: localStorage.getItem("cartItems")
+  cartItems: getInitialCartItems()
     ? JSON.parse(localStorage.getItem("cartItems")!)
     : [],
   cartTotalQuantity: 0,
