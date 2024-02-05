@@ -102,7 +102,7 @@ const Footer = () => {
         </div>
     </div>
     
-    <div className="px-24 py-6 bg-[#FAFAFA] md:flex md:items-center md:justify-between">
+    <div className="px-8 md:px-24 py-6 bg-[#FAFAFA] md:flex md:items-center md:justify-between">
        <span className='text-[#737373] text-sm font-bold text-center md:text-left'>Made With Love By Finland All Right Reserved</span>
       </div>
   </div>
