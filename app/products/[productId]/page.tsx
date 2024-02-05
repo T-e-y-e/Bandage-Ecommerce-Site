@@ -7,13 +7,15 @@ import Rating from '@mui/material/Rating';
 import { useParams } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import type { RootState } from "@/redux/store"
 import {
   addToCart,
-  clearCart,
-  decreaseCart,
-  getTotals,
-  removeFromCart,
 } from "@/redux/slices/cartSlice";
+import {
+  addToWishlist,
+} from "@/redux/slices/wishlistSlice";
+import Breadcrumb from '@/components/Breadcrumb';
+import { BorderColor } from '@mui/icons-material';
 
 interface Product {
   id: number;
@@ -23,13 +25,15 @@ interface Product {
   discountPercentage: number;
   rating: number;
   stock: number;
+  brand: string,
   category: string;
   thumbnail: string;
-  images?: string[]
+  images: string[]
 }
 
 const SingleProduct = () => {
 
+  const dispatch = useDispatch();
   const params: any = useParams();
   const productId  = params.productId;
   const [product, setProduct] = useState<Product | null>(null);
@@ -72,20 +76,41 @@ const SingleProduct = () => {
     }
   };
 
+  const handleAddToCart = (product: any) => {
+    dispatch(addToCart(product));
+  };
+
+  const handleAddToWishlist = (product: any) => {
+    dispatch(addToWishlist(product))
+  }
+
   return (
-    <div className='px-24'>
+    <div className='bg-[#FAFAFA]'>
+      <div className='px-8 md:px-40 pt-12'>
+        <Breadcrumb />
+      </div>
       {product ? (
         <>
-          <section className='px-16'>
-            <div className='grid grid-cols-2 gap-10'>
+          <section className='py-12'>
+            <div className='px-8 pb-14 lg:px-40 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20'>
               <div>
                <img src={product.thumbnail} alt={product.title} className='h-[450px] w-full object-cover'/>
               </div>
               <div>
                 <div>
                  <h5 className='text-xl text-[#252B42] mt-4'>{product.title}</h5>
-                 <div className='mt-4'>
-                  <Rating name="read-only" value={product.rating} readOnly />
+                 <div className='mt-4 flex items-center gap-4'>
+                  <Rating 
+                    name="read-only" 
+                    value={product.rating} 
+                    readOnly 
+                    sx={{
+                      "& .MuiRating-iconFilled": {
+                        color: "#F3CD03",
+                      },
+                    }}
+                    />
+                  <p className='text-sm font-bold text-[#737373]'>10 Reviews</p>
                  </div>
                  <div className='mt-4'>
                   {discountedPrice !== null && (
@@ -99,22 +124,56 @@ const SingleProduct = () => {
                 </div>
                 <div className='border-t-2 mt-16 pt-6'>
                   <div className='flex gap-4 items-center'>
-                    <button>
+                    <button className='h-[30px] w-[30px] rounded-full bg-[#23A6F0]'></button>
+                    <button className='h-[30px] w-[30px] rounded-full bg-[#2DC071]'></button>
+                    <button className='h-[30px] w-[30px] rounded-full bg-[#E77C40]'></button>
+                    <button className='h-[30px] w-[30px] rounded-full bg-[#252B42]'></button>
+                  </div>
+                  <div className='flex gap-4 items-center mt-8'>
+                    <div>
+                      <button className='bg-[#23A6F0] rounded-[5px] text-white text-sm font-bold py-3.5 px-4'>
+                       Select Options
+                     </button>
+                    </div>
+                    <div className='flex gap-4 items-center'>
+                    <button onClick={() => handleAddToWishlist(product)}>
                       <img src="/images/like.png" alt="like" />
                     </button>
-                    <button>
+                    <button onClick={() => handleAddToCart(product)}>
                       <img src="/images/basket.png" alt="like" />
                     </button>
                     <button>
                       <img src="/images/more.png" alt="like" />
                     </button>
                   </div>
+                  </div>
                 </div>
               </div>
             </div>
+
+            <div className='bg-white py-14 px-8 lg:px-40 grid grid-cols-1 md:grid-cols-2 gap-10'>
+               <div>
+               <div className='py-3 mb-6 border-b-2'>
+                <h2 className=" text-[#252B42] text-base font-bold mt-3 uppercase">
+                   Product Description
+                  </h2>
+               </div>
+               <div className='font-medium text-base text-[#737373]'>
+                <h2 className='text-[#252B42] text-2xl font-bold mb-2'>{product.title}</h2>
+                <p className='text-xm font-bold mt-4'>Category: <span className='text-[#23A6F0]'>{product.category}</span></p>
+                <p className='text-xm font-bold mt-4'>Brand: <span className='text-[#23A6F0]'>{product.brand}</span></p>
+                <p className='mt-6'>
+                  {product.description}
+                </p>
+               </div>
+               </div>
+               <div className='hidden md:block'>
+               <img src={product?.images[1]} alt={product.title} className='h-[450px] w-full object-cover rounded-lg'/>
+               </div>
+            </div>
           </section>
           
-          <section className='px-40 bg-[#FAFAFA]'>
+          <section className='px-8 md:px-40 bg-[#FAFAFA]'>
             <BestSellerProducts />
             <Brands />
           </section>

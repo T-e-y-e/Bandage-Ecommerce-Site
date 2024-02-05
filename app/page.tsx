@@ -5,15 +5,15 @@ export default function Home() {
   return (
     <main className="">
       {/* Hero section */}
-      <section>
+      {/* <section>
       <div className="grid grid-rows-3 grid-flow-col gap-4">
           <div className="row-span-3 col-span-3 bg-[url('/images/bg-img.png')] bg-no-repeat bg-cover"></div>
           <div className="col-span-2 bg-[url('/images/bg-img.png')] bg-no-repeat bg-cover"></div>
           <div className="row-span-2 col-span-1 bg-[url('/images/bg-img.png')] bg-no-repeat bg-cover"></div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="px-24">
+      <section className="p-8 md:px-24">
       <div className="font-bold">
           <h5 className="text-[#737373] text-[20px] text-center">
             Featured Products
@@ -35,7 +35,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 px-40"> 
+      <section className="py-16 px-8 md:px-40"> 
         <div className="font-bold">
           <h5 className="text-[#737373] text-[20px] text-center">
             Featured Products
@@ -47,9 +47,9 @@ export default function Home() {
             Problems trying to resolve the conflict between
           </p>
         </div>
-        <div className="flex justify-between font-bold py-16">
-          <div className="w-72 flex flex-col items-center">
-            <img src="/icons/cool-icon-1153.svg" alt="" />
+        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-0 justify-between font-bold py-16">
+          <div className="w-60 md:w-72 flex flex-col items-center">
+            <img src="/icons/cool-icon-1153.svg" alt="cool-icon" />
             <h2 className="text-center text-[#252B42] text-2xl mt-4">
               Easy Wins
             </h2>
@@ -57,8 +57,8 @@ export default function Home() {
                Get your best looking smile now!
             </p>
           </div>
-          <div className="w-72 flex flex-col items-center">
-            <img src="/icons/cool-icon-153.svg" alt="" />
+          <div className="w-60 md:w-72 flex flex-col items-center">
+            <img src="/icons/cool-icon-153.svg" alt="cool-icon" />
             <h2 className="text-center text-[#252B42] text-2xl mt-4">
               Concrete
             </h2>
@@ -66,8 +66,8 @@ export default function Home() {
                Defalcate is most focused in helping you discover your most beautiful smile
             </p>
           </div>
-          <div className="w-72 flex flex-col items-center">
-            <img src="/icons/cool-icon-125.svg" alt="" />
+          <div className="w-60 md:w-72 flex flex-col items-center">
+            <img src="/icons/cool-icon-125.svg" alt="cool-icon" />
             <h2 className="text-center text-[#252B42] text-2xl mt-4">
               Hack Growth
             </h2>
@@ -79,9 +79,9 @@ export default function Home() {
       </section>
 
       {/* Testimonial section */}
-      <section className="py-16 px-40">
-        <div className="px-24 flex justify-between items-center gap-14">
-         <div className="font-bold w-2/5 flex flex-col gap-4 items-center">
+      <section className="pt-10 md:pt-16 pb-16 px-8 md:px-40">
+        <div className="md:px-24 flex flex-col md:flex-row justify-between items-center gap-14">
+         <div className="font-bold w-full md:w-2/5 flex flex-col gap-4 items-center">
            <h2 className="text-center text-[#252B42] text-2xl mb-8">
               What they say about us
             </h2>
@@ -108,9 +108,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[url('/images/bg-img.png')] bg-no-repeat bg-cover py-32">
+      <section className="bg-[url('/images/bg-img.png')] bg-no-repeat bg-cover py-32 px-8 md:px-0">
         <div className="flex justify-center">
-          <div className="flex flex-col items-center justify-center  text-center w-2/5">
+          <div className="flex flex-col items-center justify-center  text-center w-full md:w-2/5">
             <p className="font-bold text-[#23A6F0]  text-sm">
               Designing Better Experience
             </p>

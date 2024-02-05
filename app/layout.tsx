@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Providers from '@/redux/Provider';
 import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -21,8 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.className}>
+      <ToastContainer />
         <Providers>
-          <ToastContainer />
          <Header />
           <main>
             {children}

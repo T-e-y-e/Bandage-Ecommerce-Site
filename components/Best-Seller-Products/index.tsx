@@ -46,14 +46,14 @@ const BestSellerProducts = () => {
 
 
   return (
-    <div className='px-16'>
+    <div className='md:px-16'>
         <div className='py-6 border-b-2'>
           <h2 className=" text-[#252B42] text-2xl font-bold mt-3 uppercase">
             BEST SELLER PRODUCTS
           </h2>
         </div>
 
-        <div className='grid grid-cols-4 gap-8'>
+        <div className='grid grid-cols-1 md:grid-cols-4 gap-8'>
         {products.map((product, index) => (
         <Link href={`/products/${product.id}`} key={product.id} className='flex flex-col justify-center bg-white gap-4 pb-4 mt-14 shadow-md rounded-sm hover:scale-105 transition delay-150'>
             <img src={product.thumbnail} alt={product.title} className='h-[234px] object-cover'/>

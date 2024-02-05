@@ -1,5 +1,3 @@
-// import CallOutlinedIcon from '@mui/icons-material/CallOutlined';
-// import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 
 const HeaderBanner = () => {
   return (
