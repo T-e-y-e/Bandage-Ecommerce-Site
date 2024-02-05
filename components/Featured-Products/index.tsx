@@ -59,7 +59,7 @@ return (
 <span className='text-[#BDBDBD]'>${product.price.toFixed(2)} </span>
 <span className='text-[#23856D]'> ${updatedPrices[index].toFixed(2)}</span>
 </p>
-</Link>i
+</Link>
 ))}
 </div>
          ) : (
