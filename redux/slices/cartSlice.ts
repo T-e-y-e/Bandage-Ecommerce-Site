@@ -17,18 +17,10 @@ interface CartState {
   cartTotalAmount: number;
 }
 
-const getInitialCartItems = () => {
-    if (typeof window !== "undefined") {
-      const storedCartItems = localStorage.getItem("cartItems");
-      return storedCartItems ? JSON.parse(storedCartItems) : [];
-    }
-    return [];
-  };
+const storedCartItems = typeof window !== "undefined" && localStorage.getItem("cartItems");
 
 const initialState: CartState = {
-  cartItems: getInitialCartItems()
-    ? JSON.parse(localStorage.getItem("cartItems")!)
-    : [],
+  cartItems: typeof storedCartItems === "string" ? JSON.parse(storedCartItems) : [],
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
 };

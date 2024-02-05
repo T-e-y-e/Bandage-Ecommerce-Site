@@ -13,18 +13,10 @@ interface WishlistState {
   wishlistItems: WishlistItem[];
 }
 
-const getInitialWishlistItems = () => {
-    if (typeof window !== "undefined") {
-      const storedWishlistItems = localStorage.getItem("wishlistItems");
-      return storedWishlistItems ? JSON.parse(storedWishlistItems) : [];
-    }
-    return [];
-  };
+const storedWishlistItems = typeof window !== "undefined" && localStorage.getItem("wishlistItems");
 
 const initialState: WishlistState = {
-  wishlistItems: getInitialWishlistItems()
-    ? JSON.parse(localStorage.getItem("wishlistItems")!)
-    : [],
+  wishlistItems: typeof storedWishlistItems === "string" ? JSON.parse(storedWishlistItems) : [],
 };
 
 const wishlistSlice = createSlice({
