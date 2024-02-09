@@ -4,15 +4,109 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="">
-      {/* Hero section */}
-      {/* <section>
-      <div className="grid grid-rows-3 grid-flow-col gap-4">
-          <div className="row-span-3 col-span-3 bg-[url('/images/bg-img.png')] bg-no-repeat bg-cover"></div>
-          <div className="col-span-2 bg-[url('/images/bg-img.png')] bg-no-repeat bg-cover"></div>
-          <div className="row-span-2 col-span-1 bg-[url('/images/bg-img.png')] bg-no-repeat bg-cover"></div>
+      {/* Hero section desktop*/}
+      <section className="px-40 py-20 hidden md:block">
+      <div className="grid grid-cols-3 gap-6">
+        <div className="w-full min-h-80 bg-[url('/images/hero/desktop/media-img1.png')] bg-no-repeat bg-cover font-bold p-6">
+          <p className="text-[#2DC071] text-sm">
+            5 items
+          </p>
+          <h2 className="text-[#252B42] text-[40px]">
+            Furniture
+          </h2>
+          <Link href="#" className="hover:underline text-[#252B42] text-sm">
+            Read More
+          </Link>
         </div>
-      </section> */}
+        <div className="grid grid-rows-2 grid-cols-2 col-start-2 col-end-4 gap-6">
+          <div className="col-start-1 col-end-3 min-h-80 bg-[url('/images/hero/desktop/media-img2.png')] bg-no-repeat bg-cover font-bold p-6">
+          <p className="text-[#2DC071] text-sm">
+            5 items
+          </p>
+          <h2 className="text-[#252B42] text-[40px]">
+            Furniture
+          </h2>
+          <Link href="#" className="hover:underline text-[#252B42] text-sm">
+            Read More
+          </Link>
+          </div>
+          <div className="w-full min-h-80 bg-[url('/images/hero/desktop/media-img3.png')] bg-no-repeat bg-cover font-bold p-6">
+          <p className="text-[#2DC071] text-sm">
+            5 items
+          </p>
+          <h2 className="text-[#252B42] text-[40px]">
+            Furniture
+          </h2>
+          <Link href="#" className="hover:underline text-[#252B42] text-sm">
+            Read More
+          </Link>
+          </div>
+          <div className=" min-h-80 bg-[url('/images/hero/desktop/media-img4.png')] bg-no-repeat bg-cover font-bold p-6">
+          <p className="text-[#2DC071] text-sm">
+            5 items
+          </p>
+          <h2 className="text-[#252B42] text-[40px]">
+            Furniture
+          </h2>
+          <Link href="#" className="hover:underline text-[#252B42] text-sm">
+            Read More
+          </Link>
+          </div>
+        </div>
+      </div>
+      </section>
 
+      {/* Hero section mobile*/}
+      <section className="px-8 py-16 md:hidden">
+      <div className="grid grid-cols-1 gap-6">
+        <div className="w-full min-h-80 bg-[url('/images/hero/mobile/bg-cover1.png')] bg-no-repeat bg-cover font-bold p-6">
+          <p className="text-[#2DC071] text-sm">
+            5 items
+          </p>
+          <h2 className="text-[#252B42] text-[40px]">
+            Furniture
+          </h2>
+          <Link href="#" className="hover:underline text-[#252B42] text-sm">
+            Read More
+          </Link>
+        </div>
+        <div className="w-full min-h-80 bg-[url('/images/hero/mobile/bg-cover2.png')] bg-no-repeat bg-cover font-bold p-6">
+          <p className="text-[#2DC071] text-sm">
+            5 items
+          </p>
+          <h2 className="text-[#252B42] text-[40px]">
+            Furniture
+          </h2>
+          <Link href="#" className="hover:underline text-[#252B42] text-sm">
+            Read More
+          </Link>
+        </div>
+        <div className="w-full min-h-80 bg-[url('/images/hero/mobile/bg-cover3.png')] bg-no-repeat bg-cover font-bold p-6">
+          <p className="text-[#2DC071] text-sm">
+            5 items
+          </p>
+          <h2 className="text-[#252B42] text-[40px]">
+            Furniture
+          </h2>
+          <Link href="#" className="hover:underline text-[#252B42] text-sm">
+            Read More
+          </Link>
+        </div>
+        <div className="w-full min-h-80 bg-[url('/images/hero/mobile/bg-cover4.png')] bg-no-repeat bg-cover font-bold p-6">
+          <p className="text-[#2DC071] text-sm">
+            5 items
+          </p>
+          <h2 className="text-[#252B42] text-[40px]">
+            Furniture
+          </h2>
+          <Link href="#" className="hover:underline text-[#252B42] text-sm">
+            Read More
+          </Link>
+        </div>
+      </div>
+      </section>
+
+      {/* Featured products section */}
       <section className="p-8 md:px-24">
       <div className="font-bold">
           <h5 className="text-[#737373] text-[20px] text-center">
